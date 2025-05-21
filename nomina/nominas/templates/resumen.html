@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de Pago</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        
+        <h1 class="text-center">Recibo de Pago</h1>
+        <h4>Datos del Empleado</h4>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Nombre del Empleado</th>
+                    <td>{{ usuario.nombres }} {{ usuario.apellidos }}</td>
+                </tr>
+                <tr>
+                    <th>Cargo</th>
+                    <td>{{ usuario.cargo }}</td>
+                </tr>
+                <tr>
+                    <th>Fecha Ingreso</th>
+                    <td>{{ usuario.fecha_ingreso }}</td>
+                </tr>
+                <tr>
+                    <th>EPS</th>
+                    <td>{{ usuario.eps }}</td>
+                </tr>
+                <tr>
+                    <th>Fondo Pensiones</th>
+                    <td>{{ usuario.pension }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Resultados Financieros</h4>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Sueldo Básico</th>
+                    <td>{{ usuario.sueldo }}</td>
+                </tr>
+                <tr>
+                    <th>Auxilio Transporte</th>
+                    <td>{{ desprendible.auxilio_transporte }}</td>
+                </tr>
+                <tr>
+                    <th>Descuento Salud</th>
+                    <td>{{ desprendible.descuento_salud }}</td>
+                </tr>
+                <tr>
+                    <th>Descuento Pensión</th>
+                    <td>{{ desprendible.descuento_pension }}</td>
+                </tr>
+                <tr>
+                    <th>Total Horas Extras</th>
+                    <td>{{ desprendible.total_horas_extras }}</td>
+                </tr>
+                <tr>
+                    <th>Total a Pagar</th>
+                    <td>{{ desprendible.total }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a href="{% url 'inicio' %}" class="btn btn-primary btn-sm btn-block">Volver al Inicio</a>
+    </div>
+
+    <!-- Enlaza el JS de Bootstrap y jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

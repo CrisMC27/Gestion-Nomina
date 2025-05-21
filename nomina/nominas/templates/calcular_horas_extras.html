@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcular Horas Extras</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sistema de Nómina</a>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Cálculo de Horas Extras para {{ usuario.nombres }} {{ usuario.apellidos }}</h1>
+        <form method="post" class="mt-4">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_cedula">Cédula:</label>
+                <input type="text" class="form-control" value="{{ usuario.cedula }}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="id_nombres">Nombre del Empleado:</label>
+                <input type="text" class="form-control" value="{{ usuario.nombres }} {{ usuario.apellidos }}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="id_horas_extra_diurna">Horas Extra Diurna:</label>
+                {{ form.horas_extra_diurna }}
+                {{ form.horas_extra_diurna.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_horas_extra_nocturna">Horas Extra Nocturna:</label>
+                {{ form.horas_extra_nocturna }}
+                {{ form.horas_extra_nocturna.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_horas_extra_diurna_dominical">Horas Extra Diurna Dominical:</label>
+                {{ form.horas_extra_diurna_dominical }}
+                {{ form.horas_extra_diurna_dominical.errors }}
+            </div>
+            <div class="form-group">
+                <label for="id_horas_extra_nocturna_dominical">Horas Extra Nocturna Dominical:</label>
+                {{ form.horas_extra_nocturna_dominical }}
+                {{ form.horas_extra_nocturna_dominical.errors }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Calcular y Ver Desprendible</button>
+
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

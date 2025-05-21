@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Empleados</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function confirmarEliminacion(event) {
+            const confirmacion = confirm("¿Estás seguro de que deseas eliminar los empleados seleccionados?");
+            if (!confirmacion) {
+                // Si el usuario cancela, evita que se envíe el formulario
+                event.preventDefault();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Eliminar Empleados</h2>
+        <form method="post" onsubmit="confirmarEliminacion(event)">
+            {% csrf_token %}
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Cédula</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cargo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>
+                            <input type="checkbox" name="empleados" value="{{ usuario.cedula }}">
+                        </td>
+                        <td>{{ usuario.cedula }}</td>
+                        <td>{{ usuario.nombres }}</td>
+                        <td>{{ usuario.apellidos }}</td>
+                        <td>{{ usuario.cargo }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-danger">Eliminar Seleccionados</button>
+        </form>
+    </div>
+</body>
+</html>

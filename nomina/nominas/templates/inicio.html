@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Sistema de Nómina</a>
+    </nav>
+
+    <div class="container mt-5 text-center">
+        <h1>Bienvenido al Sistema de Nómina</h1>
+        <a href="{% url 'registrar_usuario' %}" class="btn btn-primary mt-3">Registrar Usuario</a>
+        <a href="{% url 'lista_usuarios' %}" class="btn btn-success mt-3">Ver Empleados</a>
+        <a href="{% url 'eliminar_empleados' %}" class="btn btn-danger mt-3">Eliminar Empleados</a>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
